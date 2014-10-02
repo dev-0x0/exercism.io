@@ -1,14 +1,8 @@
 #!/usr/bin/env python
 
 def detect_anagrams(s, words):
-	matches = []
-	for word in words:
-		if len(word) != len(s) or word.lower() == s.lower():
-			continue
-		for letter in word:
-			if letter.lower() not in s.lower():
-				break
-			else:
-				if word.index(letter) == len(word)-1:
-					matches.append(word)
-	return matches
+    low = str.lower
+    sort = sorted
+    words = [w for w in words if (low(w) != low(s))]
+    return [w for w in words if sort(low(w)) == sort(low(s))]
+        

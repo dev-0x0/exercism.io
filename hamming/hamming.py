@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-def hamming(seq1, seq2):
-	return sum(p[0] != p[1] for p in map(None, seq1, seq2))
-	
-	
-		
+def distance(seq1, seq2):
+    return sum(1 for a, b in map(None, seq1, seq2) if a != b)
+
